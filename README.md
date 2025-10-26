@@ -1,23 +1,108 @@
-# ✨ Welcome to Your Spark Template!
-You've just launched your brand-new Spark Template Codespace — everything’s fired up and ready for you to explore, build, and create with Spark!
+# Land Access Assessment
 
-This template is your blank canvas. It comes with a minimal setup to help you get started quickly with Spark development.
+A modern web application for assessing land access and heritage compliance. Submit scope of work documentation and receive automated assessment reports.
 
-🚀 What's Inside?
-- A clean, minimal Spark environment
-- Pre-configured for local development
-- Ready to scale with your ideas
-  
-🧠 What Can You Do?
+## Prerequisites
 
-Right now, this is just a starting point — the perfect place to begin building and testing your Spark applications.
+Before running this application locally, ensure you have the following installed:
 
-🧹 Just Exploring?
-No problem! If you were just checking things out and don’t need to keep this code:
+- **Node.js** (version 18 or higher)
+- **npm** (comes with Node.js)
 
-- Simply delete your Spark.
-- Everything will be cleaned up — no traces left behind.
+## Getting Started
 
-📄 License For Spark Template Resources 
+Follow these steps to run the application on your local device:
 
-The Spark Template files and resources from GitHub are licensed under the terms of the MIT license, Copyright GitHub, Inc.
+### 1. Clone or Download the Repository
+
+If you haven't already, clone this repository or download the source code to your local machine.
+
+### 2. Install Dependencies
+
+Open a terminal in the project directory and run:
+
+```bash
+npm install
+```
+
+This will install all required packages and dependencies.
+
+### 3. Start the Development Server
+
+Run the following command to start the local development server:
+
+```bash
+npm run dev
+```
+
+### 4. Open in Browser
+
+Once the server starts, you'll see a message with the local URL (typically `http://localhost:5173`). 
+
+Open your browser and navigate to the provided URL to access the application.
+
+## Usage
+
+1. Fill in the **Scope of Work** field with project details
+2. Enter **Construction Controls** information
+3. Upload required documents:
+   - HSM Search Report
+   - Conservation Plan
+   - Heritage Gazette
+4. Click **Submit for Assessment** to generate the report
+5. Review the assessment results and download the report as needed
+
+## Project Structure
+
+```
+.
+├── src/
+│   ├── App.tsx              # Main application component
+│   ├── components/          # React components
+│   │   ├── ui/             # shadcn UI components
+│   │   └── FileUpload.tsx  # File upload component
+│   ├── hooks/              # Custom React hooks
+│   ├── lib/                # Utility functions
+│   └── index.css           # Global styles and theme
+├── index.html              # HTML entry point
+└── package.json            # Dependencies and scripts
+```
+
+## Available Scripts
+
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run preview` - Preview production build locally
+
+## Technologies Used
+
+- **React 19** - UI framework
+- **TypeScript** - Type safety
+- **Vite** - Build tool and dev server
+- **Tailwind CSS** - Styling
+- **shadcn/ui** - Component library
+- **Framer Motion** - Animations
+- **Phosphor Icons** - Icon library
+
+## Troubleshooting
+
+### Port Already in Use
+
+If port 5173 is already in use, Vite will automatically try the next available port. Check the terminal output for the correct URL.
+
+### Installation Errors
+
+If you encounter errors during `npm install`, try:
+
+```bash
+rm -rf node_modules package-lock.json
+npm install
+```
+
+### Browser Compatibility
+
+This application works best on modern browsers (Chrome, Firefox, Safari, Edge). Ensure your browser is up to date.
+
+## Support
+
+For issues or questions, please refer to the project documentation or contact the development team.
