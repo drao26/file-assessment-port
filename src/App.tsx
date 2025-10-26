@@ -234,7 +234,7 @@ function App() {
             <div className="space-y-4">
               <FileUpload
                 label="HSM Search Report"
-                placeholder="Upload HSM Search Reports (we got) HeritageItemReport..."
+                placeholder="Upload HSM Search Reports"
                 selectedFile={assessmentData?.hsmReport || null}
                 onFileSelect={(file) =>
                   setAssessmentData((prev) => ({
