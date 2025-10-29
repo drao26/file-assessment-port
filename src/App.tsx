@@ -9,6 +9,7 @@ import { Separator } from '@/components/ui/separator'
 import { FileUpload } from '@/components/FileUpload'
 import { CheckCircle, XCircle, ArrowLeft } from '@phosphor-icons/react'
 import { toast } from 'sonner'
+import telstraLogo from '/telstra-logo.png'
 
 interface AssessmentData {
   scopeOfWork: string
@@ -113,6 +114,13 @@ function App() {
               </Button>
             </div>
             
+            <div className="flex items-center justify-center mb-6">
+              <img 
+                src={telstraLogo} 
+                alt="Telstra Logo" 
+                className="h-16 w-auto"
+              />
+            </div>
             <h1 className="text-3xl font-bold mb-8 text-center">Land Access Assessment</h1>
             
             <div className="space-y-6">
@@ -184,6 +192,13 @@ function App() {
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 p-4 md:p-8">
       <div className="max-w-4xl mx-auto">
         <Card className="p-6 md:p-10 shadow-lg border-2">
+          <div className="flex items-center justify-center mb-6">
+            <img 
+              src={telstraLogo} 
+              alt="Telstra Logo" 
+              className="h-16 w-auto"
+            />
+          </div>
           <h1 className="text-3xl font-bold mb-8 text-center">Land Access Assessment</h1>
           
           <div className="space-y-6">

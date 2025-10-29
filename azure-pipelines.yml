@@ -1,0 +1,88 @@
+# Azure DevOps Pipeline for React App Deployment to Azure App Service
+# Save this file as azure-pipelines.yml in your repository root
+
+trigger:
+  branches:
+    include:
+    - main
+    - develop
+
+variables:
+  # Azure Service connection name (you'll need to create this in Azure DevOps)
+  azureServiceConnectionId: 'your-service-connection-name'
+  
+  # Web app name
+  webAppName: 'your-web-app-name'
+  
+  # Agent VM image name
+  vmImageName: 'ubuntu-latest'
+  
+  # Environment name
+  environmentName: 'production'
+  
+  # Project root folder. Point to the folder containing package.json
+  projectRoot: '$(System.DefaultWorkingDirectory)'
+  
+  # Node.js Version
+  nodeVersion: '18.x'
+
+stages:
+- stage: Build
+  displayName: Build stage
+  jobs:
+  - job: Build
+    displayName: Build
+    pool:
+      vmImage: $(vmImageName)
+
+    steps:
+    - task: NodeTool@0
+      inputs:
+        versionSpec: '$(nodeVersion)'
+      displayName: 'Install Node.js'
+
+    - script: |
+        npm ci
+      displayName: 'npm install'
+      workingDirectory: $(projectRoot)
+
+    - script: |
+        npm run build
+      displayName: 'npm build'
+      workingDirectory: $(projectRoot)
+
+    - task: ArchiveFiles@2
+      displayName: 'Archive files'
+      inputs:
+        rootFolderOrFile: '$(projectRoot)/dist'
+        includeRootFolder: false
+        archiveType: zip
+        archiveFile: $(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip
+        replaceExistingArchive: true
+
+    - upload: $(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip
+      artifact: drop
+
+- stage: Deploy
+  displayName: Deploy stage
+  dependsOn: Build
+  condition: succeeded()
+  jobs:
+  - deployment: Deploy
+    displayName: Deploy
+    environment: $(environmentName)
+    pool:
+      vmImage: $(vmImageName)
+    strategy:
+      runOnce:
+        deploy:
+          steps:
+          - task: AzureWebApp@1
+            displayName: 'Azure Web App Deploy'
+            inputs:
+              azureSubscription: $(azureServiceConnectionId)
+              appType: 'webAppLinux'
+              appName: $(webAppName)
+              runtimeStack: 'NODE|18-lts'
+              package: $(Pipeline.Workspace)/drop/$(Build.BuildId).zip
+              startUpCommand: 'pm2 serve /home/site/wwwroot --no-daemon --spa'
