@@ -8,8 +8,8 @@ trigger:
     - develop
 
 variables:
-  # Azure Service connection ID (ARM connection)
-  azureServiceConnectionId: 'bb65aa83-ad0b-44b8-ae24-cc0a0f8322d8'
+  # Azure Service connection name
+  azureServiceConnectionId: 'APP-3594-DLZ011_np'
   
   # Web app name
   webAppName: 'tcg-npae-a3594s001-app091'
