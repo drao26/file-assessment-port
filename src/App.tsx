@@ -99,9 +99,9 @@ function App() {
 
   if (showResults && assessmentResult) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 p-4 md:p-8">
+      <div className="min-h-screen bg-telstra-gradient p-4 md:p-8">
         <div className="max-w-4xl mx-auto">
-          <Card className="p-6 md:p-10 shadow-lg border-2">
+          <Card className="p-6 md:p-10 shadow-lg border-2 card-telstra">
             <div className="flex items-center gap-3 mb-6">
               <Button
                 variant="ghost"
@@ -126,7 +126,8 @@ function App() {
             <div className="space-y-6">
               <div>
                 <Label className="text-xl font-semibold mb-4 block">Assessment Report</Label>
-                <Card className="p-6 bg-accent/5 border-2 border-accent/30">
+                <Card className="p-6 bg-pink-50/50 border-2 border-pink-200"
+                >
                   <p className="text-base italic text-muted-foreground">
                     {assessmentResult.significance}
                   </p>
@@ -155,7 +156,7 @@ function App() {
 
               <div>
                 <Label className="text-base font-medium mb-3 block">Assessment Details:</Label>
-                <Card className="p-6 bg-muted/30 border-2 min-h-[300px]">
+                <Card className="p-6 bg-purple-50/30 border-2 min-h-[300px]">
                   <div className="whitespace-pre-wrap text-base leading-relaxed">
                     {assessmentResult.details}
                   </div>
@@ -168,7 +169,7 @@ function App() {
                 <Button
                   onClick={handleGenerateReport}
                   size="lg"
-                  className="gap-2 text-base"
+                  className="gap-2 text-base btn-telstra-primary"
                 >
                   Generate Assessment Report
                 </Button>
@@ -176,7 +177,7 @@ function App() {
                   onClick={handleQA}
                   variant="outline"
                   size="lg"
-                  className="gap-2 text-base"
+                  className="gap-2 text-base btn-telstra-secondary"
                 >
                   Q&A
                 </Button>
@@ -189,9 +190,9 @@ function App() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 p-4 md:p-8">
+    <div className="min-h-screen bg-telstra-gradient p-4 md:p-8">
       <div className="max-w-4xl mx-auto">
-        <Card className="p-6 md:p-10 shadow-lg border-2">
+        <Card className="p-6 md:p-10 shadow-lg border-2 card-telstra">
           <div className="flex items-center justify-center mb-6">
             <img 
               src={telstraLogo} 
@@ -219,7 +220,7 @@ function App() {
                     heritageGazette: prev?.heritageGazette || null,
                   }))
                 }
-                className="min-h-[120px] text-base border-2 border-accent/30 focus:border-accent"
+                className="min-h-[120px] text-base border-2 border-purple-200 focus:border-pink-500"
               />
             </div>
 
@@ -240,7 +241,7 @@ function App() {
                     heritageGazette: prev?.heritageGazette || null,
                   }))
                 }
-                className="min-h-[120px] text-base border-2 border-accent/30 focus:border-accent"
+                className="min-h-[120px] text-base border-2 border-purple-200 focus:border-pink-500"
               />
             </div>
 
@@ -300,7 +301,7 @@ function App() {
                 onClick={handleSubmit}
                 disabled={!isFormValid() || isGenerating}
                 size="lg"
-                className="min-w-[250px] text-base"
+                className="min-w-[250px] text-base btn-telstra-primary"
               >
                 {isGenerating ? 'Processing...' : 'Submit for Assessment'}
               </Button>

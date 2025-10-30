@@ -1,0 +1,77 @@
+/* Telstra Brand Colors and Custom Styling */
+
+/* Telstra Brand Color Palette */
+:root {
+  --telstra-magenta: #E6007E;
+  --telstra-purple: #6541C9;
+  --telstra-light-magenta: #F5C2DD;
+  --telstra-light-purple: #B8A8F0;
+  --telstra-dark-magenta: #B30062;
+  --telstra-dark-purple: #4E2F9C;
+}
+
+/* Button Primary - Telstra Magenta */
+.btn-telstra-primary {
+  background: linear-gradient(135deg, var(--telstra-magenta), var(--telstra-dark-magenta));
+  color: white;
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.btn-telstra-primary:hover {
+  background: linear-gradient(135deg, var(--telstra-dark-magenta), var(--telstra-magenta));
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(230, 0, 126, 0.3);
+}
+
+/* Button Secondary - Telstra Purple */
+.btn-telstra-secondary {
+  background: linear-gradient(135deg, var(--telstra-purple), var(--telstra-dark-purple));
+  color: white;
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.btn-telstra-secondary:hover {
+  background: linear-gradient(135deg, var(--telstra-dark-purple), var(--telstra-purple));
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(101, 65, 201, 0.3);
+}
+
+/* Card with Telstra accent */
+.card-telstra {
+  border: 2px solid transparent;
+  background: linear-gradient(white, white) padding-box,
+              linear-gradient(135deg, var(--telstra-magenta), var(--telstra-purple)) border-box;
+  transition: all 0.3s ease;
+}
+
+.card-telstra:hover {
+  box-shadow: 0 8px 25px rgba(230, 0, 126, 0.15);
+}
+
+/* Telstra gradient background */
+.bg-telstra-gradient {
+  background: linear-gradient(135deg, 
+    rgba(230, 0, 126, 0.05) 0%, 
+    rgba(101, 65, 201, 0.05) 50%,
+    rgba(245, 194, 221, 0.1) 100%);
+}
+
+/* Focus styles with Telstra colors */
+.focus-telstra:focus {
+  outline: none;
+  border-color: var(--telstra-magenta);
+  box-shadow: 0 0 0 3px rgba(230, 0, 126, 0.1);
+}
+
+/* Badge styles */
+.badge-telstra-success {
+  background: linear-gradient(135deg, #10B981, #059669);
+  color: white;
+}
+
+.badge-telstra-error {
+  background: linear-gradient(135deg, #EF4444, #DC2626);
+  color: white;
+}
