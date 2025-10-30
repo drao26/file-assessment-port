@@ -8,11 +8,14 @@ trigger:
     - develop
 
 variables:
-  # Azure Service connection name (you'll need to create this in Azure DevOps)
-  azureServiceConnectionId: 'your-service-connection-name'
+  # Azure Service connection ID (ARM connection)
+  azureServiceConnectionId: 'bb65aa83-ad0b-44b8-ae24-cc0a0f8322d8'
   
   # Web app name
-  webAppName: 'your-web-app-name'
+  webAppName: 'tcg-npae-a3594s001-app091'
+  
+  # Resource Group
+  resourceGroupName: 'tcg-npae-a3594s001-rg004'
   
   # Agent VM image name
   vmImageName: 'ubuntu-latest'
@@ -83,6 +86,7 @@ stages:
               azureSubscription: $(azureServiceConnectionId)
               appType: 'webAppLinux'
               appName: $(webAppName)
+              resourceGroupName: $(resourceGroupName)
               runtimeStack: 'NODE|18-lts'
               package: $(Pipeline.Workspace)/drop/$(Build.BuildId).zip
               startUpCommand: 'pm2 serve /home/site/wwwroot --no-daemon --spa'
